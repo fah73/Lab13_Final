@@ -31,4 +31,6 @@ public class Position {
 
         return new Position(rand.nextInt(randomX), rand.nextInt(randomY));
     }
+
+    //testing a comment
 }
