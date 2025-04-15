@@ -20,5 +20,6 @@ public enum Direction {
         }
         return new Position(0, 0); // default position if not moving
         //test comment
+        //another
     }
 }
