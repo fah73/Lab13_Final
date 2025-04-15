@@ -22,5 +22,6 @@ public enum Direction {
         //test comment
         //another
         //frances's comment
+        //another comment
     }
 }
