@@ -15,7 +15,7 @@ public enum Direction {
     public Position deltaPosition (Direction direction) {
         // TODO: should return the new position after the snake has moved
         // The position should either move +1 or -1 along the x or y axis
-        switch (direction) {
+        switch (this) {
             case UP:
             //y++
             break;
