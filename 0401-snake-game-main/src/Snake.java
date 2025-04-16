@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Snake {
     private SnakeSegment head;
-    private Direction direction = RIGHT; // Default direction
+    private Direction direction = Direction.RIGHT; // Default direction
 
     public Snake() {
         // You may change this code for extra credit (implement some fancy stuff!)
@@ -67,11 +67,11 @@ public class Snake {
         // HINT: You may add and remove nodes here
 
         // TODO: Uncomment and use the following code snippet
-        // if (!shouldGrow) {
-        // removeTail();
-        // } else {
-        // shouldGrow = false;
-        // }
+        if (!shouldGrow) {
+        removeTail();
+        } else {
+        shouldGrow = false;
+        }
     }
 
     // Return the head of the snake
