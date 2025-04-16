@@ -133,7 +133,7 @@ public class SnakeGame extends PApplet {
         snake = new Snake();
 
         // Reset direction to default
-        snake.setDirection(RIGHT);
+        snake.setDirection(Direction.RIGHT);
         snake.shouldGrow();
 
         // Reset head image to match the starting direction
@@ -168,10 +168,14 @@ public class SnakeGame extends PApplet {
                 segment.getPosition().y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
     }
 
-    // TODO: Draw the body
+    // Draws the body
     public void drawBody() {
         // HINT: Make use of drawSegment()!
-
+        SnakeSegment segment = snake.getBody();
+        while (segment != null) {
+            drawSegment(segment);
+            segment = segment.getNext();
+        }
     }
 
     public PImage loadAsset(String path) {
@@ -179,7 +183,7 @@ public class SnakeGame extends PApplet {
         return image;
     }
 
-    // TODO: Set the direction depending on pressing a key
+    // Sets the direction depending on pressing a key
     @Override
     public void keyPressed() {
         /**
@@ -193,15 +197,19 @@ public class SnakeGame extends PApplet {
         switch (keyCode) {
             case UP:
                 headImage = assets.get("head_up");
+                snake.setDirection(Direction.UP);
                 break;
             case DOWN:
                 headImage = assets.get("head_down");
+                snake.setDirection(Direction.DOWN);
                 break;
             case LEFT:
                 headImage = assets.get("head_left");
+                snake.setDirection(Direction.LEFT);
                 break;
             case RIGHT:
                 headImage = assets.get("head_right");
+                snake.setDirection(Direction.RIGHT);
                 break;
             default:
                 break;

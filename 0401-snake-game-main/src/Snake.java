@@ -10,7 +10,6 @@ import java.util.LinkedList;
 public class Snake {
     private SnakeSegment head;
     private Direction direction = Direction.RIGHT; // Default direction
-    //TODO test
     private boolean shouldGrow = false;
     LinkedList<SnakeSegment> snake = new LinkedList<>(); //Creates a linked list to make a snake
 
@@ -24,16 +23,15 @@ public class Snake {
         snake.add(head);
     }
 
-    // TODO: The snake should grow whenever it "eats" a food item
+    // Snake grows whenever it "eats" a food item
     public void shouldGrow() {
-        //snake.addLast(body);
         shouldGrow = true;
     }
 
-    // TODO: Remove the last node (tail) of the snake, leave head untouched
+    // Removes the last node (tail) of the snake, leave head untouched
     private void removeTail() {
         if (snake.size() > 1) {
-            snake.removeLast();//Removes the last from the LinkedList
+            snake.removeLast(); //Removes the last from the LinkedList
 
             //Updates the linked list of SnakeSegments
             SnakeSegment current = head;
@@ -74,7 +72,7 @@ public class Snake {
 
     }
 
-    // TODO: Get the length of the snake
+    // Gets the length of the snake
     public int getLength() {
         int count = 0;
         SnakeSegment current = head;
@@ -86,7 +84,7 @@ public class Snake {
     }
 
     // Moves the snake by one in the next direction
-    // TODO: Implement move()
+    // Implements move()
     public void move() {
         Position newPosition = head.getPosition().add(direction.deltaPosition());
         SnakeSegment newHead = new SnakeSegment(newPosition);
@@ -94,16 +92,10 @@ public class Snake {
         newHead.setNext(head); //Links new head to old head
         head = newHead;
         snake.addFirst(newHead); //Adds to the front of the linked list tracker
-
-        //TODO REMOVE IF WORKS
         // ...
-
         // * OPTIONAL: also handle wrapping left and right here
         // * Or check for a collision with the top and bottom of the frame
-
         // HINT: You may add and remove nodes here
-
-        // TODO: Uncomment and use the following code snippet
         if (!shouldGrow) {
         removeTail();
         } else {
@@ -111,12 +103,12 @@ public class Snake {
         }
     }
 
-    // Return the head of the snake
+    // Returns the head of the snake
     public SnakeSegment getHead() {
         return this.head;
     }
 
-    // TODO: Return the start of the body (NOT the head!)
+    // Returns the start of the body (NOT the head!)
     public SnakeSegment getBody() {
         if (snake.size() > 1) {
             return snake.get(1); //Index 0 is the head
