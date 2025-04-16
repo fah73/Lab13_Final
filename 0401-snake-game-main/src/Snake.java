@@ -5,10 +5,14 @@
  */
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Snake {
     private SnakeSegment head;
     private Direction direction = Direction.RIGHT; // Default direction
+    LinkedList<SnakeSegment> snake = new LinkedList<SnakeSegment>(); //Creates a linked list to make a snake
+
+
 
     public Snake() {
         // You may change this code for extra credit (implement some fancy stuff!)
